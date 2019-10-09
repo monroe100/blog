@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin 
 from .models import Post
-from django.views.generic import ListView,DetailView,CreateView,UpdateView
+from django.views.generic import (ListView,
+    DetailView,
+    CreateView,
+    UpdateView, 
+    DeleteView
+)
 
 
 # Create your views here.
@@ -47,12 +52,22 @@ class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
         form.instance.Personel = self.request.user 
         return super().form_valid(form)
 
-    def test_function(self):
-        post = self.get_object  #it gets the post that we are currently trying to update
+    def test_func(self):
+        post = self.get_object()  #it gets the post that we are currently trying to update
         if self.request.user == post.Personel:  # checks the current logged in user and checks if he/she owns the post trying to be edited
             return True 
         return False
-        
+
+
+class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
+    model = Post
+    def test_func(self):
+        post = self.get_object()  #it gets the post that we are currently trying to update
+        if self.request.user == post.Personel:  # checks the current logged in user and checks if he/she owns the post trying to be edited
+          return True 
+        return False
+
+
 def about(request):
     return render(request, 'project/about.html', {'title': 'About'})
 
