@@ -21,8 +21,10 @@
 </head>
 
 <body>
+              
         <header class="site-header">
                 <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+                    {% if user.is_authenticated %}
                   <div class="container">
                     <a class="navbar-brand mr-4" href="{% url 'project_home'%}">Neighborhood Watch</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,9 +33,10 @@
                     <div class="collapse navbar-collapse" id="navbarToggle">
                       <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'project_home'%}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'business_home'%}">Business</a>
+                        <a class="nav-item nav-link" href="{% url 'business_home'%}">Businesses</a>
+                        
                     </div>
-
+                    {% endif %}
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                       {% if user.is_authenticated %}
@@ -42,8 +45,11 @@
                       <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                       <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                       {% else %}
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                      <div class='WELCOME'>
+                      <p>  WELCOME TO OUR TRUSTED NEIGHBORHOOD SYTEM, LOG IN TO CONTINUE</p>
+                      </div>
+                        <!-- <a class="nav-item nav-link" href="{% url 'login' %}">Login</a> -->
+                        <!-- <a class="nav-item nav-link" href="{% url 'register' %}">Register</a> -->
                       {% endif %}
                       </div>
                     </div>

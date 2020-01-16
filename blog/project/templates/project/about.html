@@ -1,7 +1,7 @@
 {% extends "project/base.html"%}
 {% block content %}
 
-    {% for business in business%}
+    {% for business in business %}
     <article class="media content-section">
       <img class="rounded-circle article-img" src="{{ business.Personel.profile.image.url }}">
             <div class="media-body">
@@ -9,7 +9,7 @@
                 <a class="mr-2" href="#">{{ business.Personel }}</a>
                 <small class="text-muted">{{ business.date_posted }}</small>
               </div>
-              <img src="{{object.Personel.image.url}}" >
+              <img src="{{photo.post_image.url}}" class="img-responsive"style="width:110px;height:100px;" alt="img">
               <h2><a class="article-title" href="{% url 'business_detail' business.id%}">{{ business.title }}</a></h2>
               <p class="article-content">{{ business.content }}</p>
             </div>
