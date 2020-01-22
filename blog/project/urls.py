@@ -11,7 +11,7 @@ from .views import (
     BusinessDetailView,
     BusinessCreateView,
     BusinessUpdateView,
-    BusinessDeleteView
+    BusinessDeleteView,
 
 )
 

@@ -14,7 +14,7 @@ from django.views.generic import (ListView,
 
 context = {
     'posts': Post.objects.all(),
-    'business': Business.objects.all(),
+    'business': Business.objects.all()
 }
 def home(request):
     return render(request, 'project/home.html', context)
@@ -104,7 +104,7 @@ class BusinessCreateView(LoginRequiredMixin,CreateView):
     def form_valid(self, form):
         form.instance.Personel = self.request.user # sets the form instance to the personel who is currently logged in
         return super().form_valid(form)
-
+    success_url = '/'
 
 class BusinessUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView): 
     model = Business
@@ -133,5 +133,6 @@ class BusinessDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
           return True 
         return False
 
-
+def about(request):
+    return render(request, 'project/about.html', {'title': 'About'})
 

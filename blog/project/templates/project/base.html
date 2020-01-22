@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css"  href="{% static 'project/main.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Lobster&display=swap" rel="stylesheet">
     {% if title%}
     <title> Neighborhood Watch - {{ title }}</title>
     {% else %}
@@ -45,9 +47,9 @@
                       <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                       <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                       {% else %}
-                      <div class='WELCOME'>
-                      <p>  WELCOME TO OUR TRUSTED NEIGHBORHOOD SYTEM, LOG IN TO CONTINUE</p>
-                      </div>
+                      <!-- <div class='WELCOME'>
+                      <p style="text-align: center;"> WELCOME TO OUR TRUSTED NEIGHBORHOOD SYTEM, LOG IN TO CONTINUE</p>
+                      </div> -->
                         <!-- <a class="nav-item nav-link" href="{% url 'login' %}">Login</a> -->
                         <!-- <a class="nav-item nav-link" href="{% url 'register' %}">Register</a> -->
                       {% endif %}

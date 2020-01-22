@@ -1,28 +1,54 @@
 
 {% extends "project/base.html"%}
 {% load static %}
-<!-- {% load crispy_forms_tags %} -->
+{% load crispy_forms_tags %}
 
 {% block content %}
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"  href="{% static 'project/main.css'%}">
+<!-- <body style="background-color:rgb(236, 248, 250);"> -->
+        <style>
+                body {
+                  background-image: url('/static/bg.jpg');
+                  background-repeat: no-repeat;
+                  background-attachment: fixed; 
+                  background-size: cover;
+                }
+                .hood { 
+            font-family: Lobster; 
+            
+        }
+    {
+        font-family: Courgette;
+}
+          
+        </style>
+                <div id="form-wrapper" style="max-width:350px;margin:auto;">
     <div class='content-section'>
         <form method="POST">
             {%csrf_token %}
             <fieldset class="form-group"> 
-                <legend class="border-bottom mb-4">Log In</legend>
+                <div class="hood">
+            <center><legend class="border-bottom mb-4" text-align:center>HoodWatch</legend></center></div>
                 {{ form|crispy }}
             </fieldset>
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+              </div>
             <div class="form-group">
-                <button class="btn btn-outline-info" typr="submit">Log In</button>
+                <center><button class="btn btn-outline-info" typr="submit">Log In</button></center>
             </div>
+
         </form>
+    </center>              
+    </div>
         <!-- <div class="border-top pt-3">
             <small class="text-muted">
             Need an Account? <a class="ml-2" href ="{% url 'register'%}">Sign Up</a>
             </small>
         </div> -->
     </div>
-
+</body>
 
 {% endblock content %}
